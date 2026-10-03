@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>this is main html</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, accusamus veniam eius libero et nemo tenetur molestias. Esse sit rerum, ipsa vitae reprehenderit id est enim temporibus odit quia ducimus tenetur. Accusamus quia illo laudantium, dicta est excepturi maiores expedita mollitia ad doloremque magnam officiis! Nostrum dignissimos, quas quo dicta itaque quasi suscipit sed veniam sunt voluptate iure. Ratione a ipsum consequuntur eius dignissimos porro id nesciunt, rem suscipit at sapiente sunt optio odit, nam fugiat blanditiis laudantium ullam officia facilis dolorum, dolorem inventore quod atque! Velit exercitationem unde nam, ut voluptatibus, excepturi libero doloribus, voluptatum nulla dolor minus earum!</p>
+
+    {% block abc %}
+    {% endblock %}
+
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'fashion' %}">Fashion</a>
+        <a href="{% url 'about' %}">About</a>
+    </nav>
+
+    {% block xyz %}
+    {% endblock %}
+</body>
+</html>
