@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            ECOM
+        </div>
+        <div class="link">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'electronics' %}">Electronics</a>
+            <a href="{% url 'fashion' %}">Fashion</a>
+            <a href="{% url 'mobiles' %}">Mobiles</a>
+            <a href="{% url 'fresh' %}">Fresh</a>
+            <a href="{% url 'healthcare' %}">Health Care</a>
+            <a href="{% url 'about' %}">About</a>
+        </div>
+
+    </nav>
+    <div class="box">
+        <img src="{% static 'images/Fashion/img-1.webp' %}" alt="Not found">
+        <img src="{% static 'images/Fashion/img-2.webp' %}" alt="Not found">
+        <img src="{% static 'images/Fashion/img-3.webp' %}" alt="Not found">
+        <img src="{% static 'images/Fashion/img-4.webp' %}" alt="Not found">
+        <img src="{% static 'images/Fashion/img-5.webp' %}" alt="Not found">
+        <img src="{% static 'images/Fashion/img-6.webp' %}" alt="Not found">
+        <img src="{% static 'images/Fashion/img-7.webp' %}" alt="Not found">
+        <img src="{% static 'images/Fashion/img-8.webp' %}" alt="Not found">
+    </div>
+    
+</body>
+</html>
