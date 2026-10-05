@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is Home page</h1>
+<!--  Display data from backend and display it in frontend:
+        Syntax : {{variable_name}}     
+-->
+    {{data}} <br>
+    {{list}} <br>
+
+<!--  Display data indexing:
+        Syntax : {{variable_name.index_value}}     
+-->
+    {{list.0}}  <br>
+    {{list.4}}  <br>
+    {{list.4.0}}  <br>
+    {{list.4.2}}  <br>
+
+
+    {{data|upper}}  <br>
+    {{data|truncatewords:2}}  <br>
+    {{data|truncatechars:2}}  <br>
+    <hr>
+    <h3>Looping statement</h3>
+
+<!-- For loop
+    {% for i in iterables %}
+        {{looping_variable}}
+    {% endfor %}   
+-->
+
+
+    {% for i in list %}
+        <h2>{{i}}</h2>
+    {% endfor %}
+
+    <hr>
+
+<!--  Conditional Statements
+
+        Syntax : {{variable_name}}     
+-->
+        {{age}}
+        {% if age > 22 %}
+            <h2>You can enter into pub</h2>
+        {% elif age > 20 %}
+            <h2>You can enter into pub, but can't drink</h2>
+        {% else %}
+            <h2>You will be kicked out</h2>
+        {% endif %}
+
+</body>
+</html>
