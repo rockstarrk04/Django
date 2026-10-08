@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home {
+    width: 80%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.article-card {
+    padding: 15px;
+    border: solid 2px black;
+}
+
+.article-card img {
+    width: 100%;
+    height: 180px;
+}
+
+.article-card h1 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: white;
+    text-align:left;
+    font-size: 25px;
+}
+
+.article-card h2 {
+    margin-bottom: 15px;
+    color: #983b3b;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: justify;
+}
+
+.article-card a {
+    margin-left: 18vh;
+    display: inline-block;
+    padding: 8px 12px;
+    color: white;
+    background-color: blue;
+    text-decoration: none;
+    border-radius: 5px;
+}

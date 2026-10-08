@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock%}
+
+
+{% block content %}
+<div class="home">
+    {% for i in data %}
+        <article class="article-card">
+            <img src="{{i.image}}" alt="{{i.title}}">
+            <h1>{{i.title}}</h1>
+            <h2>{{i.desc|truncatewords:5}}</h2>
+            <a href="{% url 'news_read' i.id %}">Read More</a>
+        </article>
+    {% endfor %}
+</div>
+
+{% endblock%}

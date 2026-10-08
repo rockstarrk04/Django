@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<center>
+    <table rules="all" border="2px">
+        <tr>
+            <th>SI.NO</th>
+            <th>NAME</th>
+            <th>PH.NO</th>
+            <th>ACTION</th>
+        </tr>
+        <tr>
+            <th>01</th>
+            <th>A</th>
+            <th>9876543210</th>
+            <th><a href="{% url 'student' 1 %}">Click here</a></th>
+        </tr>
+        <tr>
+            <th>02</th>
+            <th>B</th>
+            <th>9876543210</th>
+            <th><a href="{% url 'student' 2 %}">Click here</a></th>
+        </tr>
+        <tr>
+            <th>03</th>
+            <th>C</th>
+            <th>9876543210</th>
+            <th><a href="{% url 'student' 3 %}">Click here</a></th>
+        </tr>
+        <tr>
+            <th>04</th>
+            <th>D</th>
+            <th>9876543210</th>
+            <th><a href="{% url 'student' 4 %}">Click here</a></th>
+        </tr>
+        <tr>
+            <th>05</th>
+            <th>E</th>
+            <th>9876543210</th>
+            <th><a href="{% url 'student' 5 %}">Click here</a></th>
+        </tr>
+    </table>
+
+
+    <hr>
+    <br>
+    <a href="{% url 'employee' 'A' %}">student A</a> <br>
+    <a href="{% url 'employee' 'B' %}">student B</a><br>
+    <a href="{% url 'employee' 'C' %}">student C</a><br>
+    <a href="{% url 'employee' 'D' %}">student D</a><br>
+    <a href="{% url 'employee' 'E' %}">student E</a>
+</center>
+{% endblock %}
