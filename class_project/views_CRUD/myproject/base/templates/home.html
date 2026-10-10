@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+     {% block context %}
+        <center>
+            {{data}} <br>   
+            {{data.id}} // {{data.car_name}} // {{data.color}} // {{data.price}}
+            <hr>
+            {{data_all}}
+            <br><br>
+
+            {% for i in data_all %}
+                {{i.id}}  // {{i.car_name}}  // {{i.color}} // {{i.price}}  <br><br>
+            {% endfor %}
+        </center>
+
+     {% endblock %}
