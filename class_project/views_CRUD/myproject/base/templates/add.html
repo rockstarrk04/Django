@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+
+{% block context %}
+    
+    <center>
+        <h2>This is GET method</h2>
+        <form action="" method="get">
+            <label for="">Carname : </label>
+            <input type="text" name="car_name"> <br><br>
+            <label for="">Color : </label>
+            <input type="text" name="color"> <br><br>
+            <label for="">Price : </label>
+            <input type="number" name="price"> <br><br>
+            <button>Submit</button>
+        </form>
+    </center>
+
+    
+    <center>
+        <h2>This is POST method</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="">Carname : </label>
+            <input type="text" name="car_name"> <br><br>
+            <label for="">Color : </label>
+            <input type="text" name="color"> <br><br>
+            <label for="">Price : </label>
+            <input type="number" name="price"> <br><br>
+            <button>Submit</button>
+        </form>
+    </center>
+{% endblock %}

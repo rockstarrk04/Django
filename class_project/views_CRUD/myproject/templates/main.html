@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <h1>This is Main Page</h1> -->
+    <h2>
+        <a href="{% url 'home' %}">HOME</a>
+        <a href="{% url 'add' %}">ADD</a>
+    </h2>
      {% block context %}
      {% endblock %}
 </body>

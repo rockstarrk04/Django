@@ -2,14 +2,11 @@
 
      {% block context %}
         <center>
-            {{data}} <br>   
-            {{data.id}} // {{data.car_name}} // {{data.color}} // {{data.price}}
-            <hr>
-            {{data_all}}
-            <br><br>
-
             {% for i in data_all %}
-                {{i.id}}  // {{i.car_name}}  // {{i.color}} // {{i.price}}  <br><br>
+                {{i.id}}  // {{i.car_name}}  // {{i.color}} // {{i.price}}  
+                <a href="{% url 'update' i.id %}">Update</a>
+                <a href="{% url 'hdelete' i.id %}">Delete</a>
+                <br><br>
             {% endfor %}
         </center>
 
