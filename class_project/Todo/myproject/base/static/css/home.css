@@ -1,0 +1,53 @@
+.delete{
+    border: solid 2px black;
+    background-color: red;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.complete{
+    border: solid 2px black;
+    background-color: greenyellow;
+    color: black;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.update{
+    border: solid 2px black;
+    background-color: mediumspringgreen;
+    color: black;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.restore{
+    border: solid 2px black;
+    background-color: lightsalmon;
+    color: black;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.section{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 0px;
+    
+}
+
+.box{
+    height: 100%;
+    width: 40%;
+    border: solid 2px black;
+    margin-top: 15vh;
+    background-color: lightgreen;
+    border-radius: 20px;
+
+}

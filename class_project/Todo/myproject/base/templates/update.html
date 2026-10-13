@@ -1,16 +1,40 @@
 {% extends 'main.html' %}
+{% load static %}
+
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% endblock %}
 
     {% block content %}
     <center>
-        <h2>Update the Task here</h2>
+        <h2>Update Task Here</h2>
+        <div class="box">
         <form action="" method="post">
             {% csrf_token %}
             <br><br><br>
             <label for="">Title :</label>
-            <input type="text" name="title" value="{{data.title}}"> <br><br><br>
+            <input style="padding: 10px 10px;border-radius: 5px; border: none;" type="text" name="title" value=" {{data.title}}"> <br><br><br>
             <label for="">Desc :</label>
-            <input type="text" name="desc" value="{{data.desc}}"> <br><br><br>
-            <button>Submit</button>
+            <input style="padding: 10px 10px;border-radius: 5px; border: none;" type="text" name="desc" value="{{data.desc}}"> <br><br><br>
+            <button style="padding: 10px 10px;border-radius: 5px; border: none;cursor: pointer;
+            ">Submit</button>
+            <br><br><br>
         </form>
+        </div>
     </center>
     {% endblock %}
+
+
+            <div class="box">
+        <form action="" method="post">
+            {% csrf_token %}
+            <br><br><br>
+            <label for="">Title :</label>
+            <input style="padding: 10px 10px;border-radius: 5px; border: none;" type="text" name="title" required placeholder="Enter Title"> <br><br><br>
+            <label for="">Desc :</label>
+            <input style="padding: 10px 10px;border-radius: 5px; border: none;" type="text" name="desc" required placeholder="Add Description"> <br><br><br>
+            <button style="padding: 10px 10px;border-radius: 5px; border: none;cursor: pointer;
+            ">Submit</button>
+            <br><br><br>
+        </form>
+        </div>

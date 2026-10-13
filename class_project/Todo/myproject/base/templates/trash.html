@@ -1,17 +1,27 @@
 {% extends 'main.html' %}
 
+{% load static %}
+
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% endblock %}
+
     {% block content %}
         <center>
             <h2>These are Trash Task</h2> <br><br>
-            <a href="{% url 'trestore_all' %}">Restore All</a>
-            <a href="{% url 'tdelete_all' %}">Delete All</a>
-            <br><br>
+            <a class="restore" href="{% url 'trestore_all' %}">Restore All</a>
+            <a class="delete" href="{% url 'tdelete_all' %}">Delete All</a>
+            <br><br><br><hr><br>
             
             {% for i in data %}
-                {{i.id}}  // {{i.title}} // {{i.desc}} 
-                <a href="{% url 'trestore' i.id %}">Restore</a>
-                <a href="{% url 'tdelete' i.id %}">Delete</a>
-                <br> <br>
+            <h2>Title : {{i.title}}</h2>
+            <h4>Description : {{i.desc}}</h4> 
+            <br>
+            <div class="section">
+                <a class="restore" href="{% url 'trestore' i.id %}">Restore</a>
+                <a class="delete" href="{% url 'tdelete' i.id %}">Delete</a>
+            </div>
+                <br><br><br><hr><br>
             {% endfor %}
 
         </center>

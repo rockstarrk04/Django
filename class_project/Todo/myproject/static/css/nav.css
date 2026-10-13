@@ -9,7 +9,8 @@ nav {
     height: 70px;
     width: 100%;
     display: flex;
-    border: solid 1px black;
+    border: solid 1px transparent;
+    background-color: lightgray;
 }
 
 .logo {
