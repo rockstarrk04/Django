@@ -5,10 +5,11 @@
     {% endblock %}
 
     {% block content %}
-    <center>
-        <h2>Your Tasks Are : </h2>
+    <center class="center">
         <br><br>
-        <a class="delete" href="{% url 'delete_all' %}">Delete All</a>
+        <h2>Today's Task</h2>
+        <br><br>
+        <a class="delete" href="{% url 'delete_all' %}">Move all to Trash</a>
         <br><br><br><hr><br>
         {% for i in data %}
             <h2>Title : {{i.title}}</h2>

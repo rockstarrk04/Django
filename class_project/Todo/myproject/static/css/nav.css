@@ -9,8 +9,7 @@ nav {
     height: 70px;
     width: 100%;
     display: flex;
-    border: solid 1px transparent;
-    background-color: lightgray;
+    border-bottom: solid 1px black;
 }
 
 .logo {
@@ -34,5 +33,11 @@ nav {
     margin-right: 5vw;
     a{
         text-decoration: none;
+        color: navy;
+    }
+    a:hover{
+        color: black;
+        border-bottom: solid 2px black;
+        transform: scale(1.2);
     }
 }
