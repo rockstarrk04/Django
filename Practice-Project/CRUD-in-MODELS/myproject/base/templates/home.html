@@ -3,4 +3,25 @@
 
 {% block abc %}
     <h1>This is home page</h1>
+    <center>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="">Name</label>
+            <input type="text" name="name" id=""> <br><br>
+            <label for="">age</label>
+            <input type="number" name="age" id=""> <br><br>
+            <label for="">image</label>
+            <input type="file" name="image" id=""> <br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <br><br>
+        <hr>
+        {% for i in data %}
+            {{i.id}} // {{i.std_name}} // {{i.age}} // <img src="{{i.image.url}}" alt=""> <br><br>
+
+        {% endfor %}
+    </center>
 {% endblock %}

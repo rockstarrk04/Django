@@ -4,6 +4,4 @@ from django.db import models
 class StudentModel(models.Model):
     std_name = models.CharField(max_length=30)
     age = models.IntegerField()
-    address = models.TextField()
-    dob = models.DateField()
-    USN = models.IntegerField()
+    image  = models.ImageField(upload_to='upload/',default='img4.png')
