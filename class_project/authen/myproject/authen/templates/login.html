@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+    <center>
+        <br><br>
+        <h1>Login Page</h1>
+        <br><br>
+        {% if messages %}
+            {% for i in messages %}
+                <h1 style="color: red;">{{i}}</h1><br><br>
+            {% endfor %}
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="">Username : </label>
+            <input type="text" name="username"> <br><br><br>
+            <label for="">Password : </label>
+            <input type="password" name="password"> <br><br><br>
+            <button type="submit">LOGIN</button>
+        </form>
+        <br><br>
+        <h3><a href="{% url 'register' %}">Register Here...</a></h3>
+        <br><br>
+        <h3><a href="{% url 'register' %}">Forgot Password...</a></h3>
+    </center>
+{% endblock %}
