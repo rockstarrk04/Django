@@ -55,6 +55,10 @@ def profile(request):
     return render(request,'profile.html')
 
 def reset_password(request):
+    
+    global username
+    username = request.user.username
+    user = User.objects.get(username = request.user.username)
     if request.method == "POST":
         if 'old_password' in request.POST:
             old_password = request.POST['old_password']
@@ -68,28 +72,55 @@ def reset_password(request):
 
         if 'new_password' in request.POST:
             new_password = request.POST['new_password']
-            user = request.user
-            user.set_password(new_password)
-            user.save()
-            messages.success(request, 'Password changed successfully. Please log in again.')
-            return redirect('login_')
-    return render(request,'reset_password.html')
+            confirm_password = request.POST['confirm_password']
+            if new_password == confirm_password:
+                user.set_password(new_password)
+                user.save()
+                messages.success(request, 'Password changed successfully. Please log in again.')
+                return redirect('login_')
+            else:
+                messages.error(request, 'New Password is not Matching... Please try again.')
+                return redirect('reset_password')
+    return render(request,'reset_password.html',{"data" : username})
 
 
 
 def update(request):
     user = User.objects.get(username = request.user.username)
-    if request.method == "POST":
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
+    if 'username' in request.POST:
 
-        user.first_name = first_name
-        user.last_name = last_name
-        user.email = email
-        user.save()
+        if request.method == "POST":
+            first_name = request.POST['first_name']
+            last_name = request.POST['last_name']
+            email = request.POST['email']
 
-        messages.success(request,'Updated Profile Successfully..!!')
-        return redirect('profile')
+            user.first_name = first_name
+            user.last_name = last_name
+            user.email = email
+            user.save()
+
+            messages.success(request,'Updated Profile Successfully..!!')
+            return redirect('profile')
     
     return render(request,'update.html',{"data" : user})
+
+
+def forgot_password(request):
+    global username
+    if request.method == "POST":
+        if 'username' in request.POST:
+            username = request.POST['username']
+            try:
+                if User.objects.get(username = username) : 
+                    return render(request,'forgot_password.html',{"new" : True})
+            except:
+                messages.error(request,"User Doesn't Exist..!")
+
+        if 'password' in request.POST:
+            new_password = request.POST['password']
+            user = User.objects.get(username = username)
+            user.set_password(new_password)
+            user.save()
+            messages.success(request,'Successfully Changed Password..!')
+            return redirect('login_')
+    return render(request,'forgot_password.html')
