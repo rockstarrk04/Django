@@ -8,5 +8,13 @@
                 <h1 style="color: red;">{{i}}</h1><br><br>
             {% endfor %}
         {% endif %}
+
+        {% for i in data %}
+            <h2>
+                {{i.title}}  // {{i.desc}}  // {{i.user_id}}
+                <br>
+                <a href="{% url 'hdelete' i.id %}">Delete</a>
+            </h2>
+        {% endfor %}
 </center>
 {% endblock %}

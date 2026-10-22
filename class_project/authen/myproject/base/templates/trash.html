@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<center>
+
+    <h2 style="color: red;">This is TRASH page</h2>
+    <br><br>
+        {% for i in data %}
+            <h2>
+                {{i.title}}  // {{i.desc}}  // {{i.user_id}}
+                <a href="{% url 'hrestore' i.id %}">Restore</a>
+
+            </h2>
+        {% endfor %}
+</center>
+{% endblock %}
