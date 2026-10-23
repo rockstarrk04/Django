@@ -10,3 +10,4 @@ urlpatterns = [
     path('update',update,name="update"),
     path('forgot_password/',forgot_password,name="forgot_password")  
 ]
+

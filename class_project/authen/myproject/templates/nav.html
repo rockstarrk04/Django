@@ -8,7 +8,7 @@
             <a href="{% url 'add' %}">ADD</a>
             <a href="">COMPLETED</a>
             <a href="{% url 'trash' %}">TRASH</a>
-            <a href="{% url 'profile' %}">PROFILE ({{request.user}})</a>
+            <a href="{% url 'profile' %}">PROFILE ({{request.user}}) <img src="{{profile.image.url}}" alt="" height="50" width="50" style="border-radius: 50%;"></a>
             <a href="{% url 'logout_' %}">LOGOUT</a>
         
         {% else %}

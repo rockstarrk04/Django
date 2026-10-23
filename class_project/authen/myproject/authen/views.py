@@ -1,7 +1,9 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from .models import PictureModel
+
 
 # Create your views here.
 def login_(request):
@@ -33,12 +35,15 @@ def register(request):
             return render(request,'register.html',{"msz" : 'username already exist!!'})
         
         except:
-            User.objects.create_user(
+            a = User.objects.create_user(
                 first_name = first_name,
                 last_name = last_name,
                 username = username,
                 email = email,
                 password = password,
+            )
+            PictureModel.objects.create(
+                user = a
             )
             return redirect('login_')
     return render(request,'register.html')
@@ -52,7 +57,8 @@ def logout_(request):
     return redirect('home')  
 
 def profile(request):
-    return render(request,'profile.html')
+    profile = profile_image(request)
+    return render(request, 'profile.html', {'profile': profile})
 
 def reset_password(request):
     
@@ -87,22 +93,32 @@ def reset_password(request):
 
 def update(request):
     user = User.objects.get(username = request.user.username)
-    if 'username' in request.POST:
+    image, created = PictureModel.objects.get_or_create(user=request.user)
 
-        if request.method == "POST":
-            first_name = request.POST['first_name']
-            last_name = request.POST['last_name']
-            email = request.POST['email']
-
-            user.first_name = first_name
-            user.last_name = last_name
-            user.email = email
-            user.save()
-
-            messages.success(request,'Updated Profile Successfully..!!')
-            return redirect('profile')
+    data = {
+        "data" : user,
+        "image" : image
+    }
     
-    return render(request,'update.html',{"data" : user})
+    if request.method == "POST":
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        profile = request.FILES.get('profile')
+
+        if profile:
+            image.image = profile
+            image.save()
+
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+        user.save()
+
+        messages.success(request,'Updated Profile Successfully..!!')
+        return redirect('profile')
+    
+    return render(request,'update.html',{"data" : data})
 
 
 def forgot_password(request):
@@ -124,3 +140,7 @@ def forgot_password(request):
             messages.success(request,'Successfully Changed Password..!')
             return redirect('login_')
     return render(request,'forgot_password.html')
+
+
+def profile_image(request):
+    return get_object_or_404(PictureModel,user = request.user)
