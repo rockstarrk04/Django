@@ -4,10 +4,17 @@
 <center>
 
     <h2 style="color: red;">This is TRASH page</h2>
-    <br><br>
+    <br>
+
+    <h3>
+        <a href="">Restore All</a>
+        <a href="">Delete All</a>
+        <br><hr><br>
+    </h3>
         {% for i in data %}
             <h2>
                 {{i.title}}  // {{i.desc}}  // {{i.user_id}}
+                <a href="">Delete</a>
                 <a href="{% url 'hrestore' i.id %}">Restore</a>
 
             </h2>

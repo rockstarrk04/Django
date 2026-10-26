@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<center>
+    <h1>HTML Form</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="std_name">Name : </label>
+        <input type="text" name="std_name" id="std_name"> <br><br>
+        <label for="">Number : </label>
+        <input type="number" name="std_number" id="" value=""> <br><br>
+        <label for="">Email : </label>
+        <input type="email" name="std_email" id=""> <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <br><br><br><hr><br><br><br>
+
+    <h1>Django Form</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+
+    <br><br><hr><br><br>
+
+    {% for i in data %}
+        <h2>
+            {{i.name}}  // {{i.phone}}  // {{i.email}} <a href="{% url 'update' i.id %}">Update</a>
+        </h2> 
+        
+        <br>
+    {% endfor %}
+</center>
+    
+{% endblock %}

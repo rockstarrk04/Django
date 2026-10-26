@@ -6,5 +6,6 @@ urlpatterns = [
     path('add/',add,name="add"),
     path('hdelete/<int:pk>',hdelete,name="hdelete"),
     path('hrestore/<int:pk>',hrestore,name="hrestore"),
-    path('trash',trash,name="trash")
+    path('trash',trash,name="trash"),
+    path('hcomplete',hcomplete,name="hcomplete")
 ]

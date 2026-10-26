@@ -2,19 +2,39 @@
 
 {% block content %}
 <center>
-        <h1>THis is HOME (base)</h1>
-        {% if messages %}
+        <!-- <h1>THis is HOME (base)</h1> -->
+        <h2>Search Task</h2>
+        <br>
+        <form action="" method="GET">
+            
+            <input type="text" name="q" placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+        <br><hr><br>
+        <a href="">Delete All</a>
+        <a href="">Complete All</a>
+        <br><br>
+
+        {% if mgz %}
+            {% if messages %}
             {% for i in messages %}
                 <h1 style="color: red;">{{i}}</h1><br><br>
             {% endfor %}
         {% endif %}
+        {% endif %}
+
+
 
         {% for i in data %}
-            <h2>
-                {{i.title}}  // {{i.desc}}  // {{i.user_id}}
+            <h3>
+                {{i.id}} // {{i.title}}  // {{i.desc}}  // {{i.user_id}}
                 <br>
                 <a href="{% url 'hdelete' i.id %}">Delete</a>
-            </h2>
+                <a href="">Update</a>
+                <a href="{% url 'complete' i.id %}">Complete</a>
+                <br><br>
+
+            </h3>
         {% endfor %}
 </center>
 {% endblock %}
