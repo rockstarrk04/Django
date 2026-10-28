@@ -10,8 +10,6 @@ from django.contrib import messages
 @login_required(login_url='login_')
 def home(request):
     mgz = False
-    count = False
-    count = TodoModel.objects.filter(user = request.user , is_delete = False).count()
     profile = profile_image(request)
 
     if 'q' in request.GET:
