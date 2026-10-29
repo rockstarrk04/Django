@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <center>
+        <h2>This is Home Page</h2>
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.non_field_errors}}
+            {% for i in form %}
+                {{ i.label }} <br>
+                {{ i }} <br>
+                {{ i.errors }}
+            {% endfor %}
+            <button type="submit">submit</button>
+        </form>
+    </center>
+{% endblock %}
