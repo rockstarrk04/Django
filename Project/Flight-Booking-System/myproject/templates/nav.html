@@ -1,0 +1,18 @@
+<nav>
+    <div class="logo">Indigo</div>
+    <div class="links">
+        {% if request.user.is_authenticated %}
+            <a href="">Home</a>
+            <a href="">Booking</a>
+            <a href="">History</a>
+            <a href="">Profile</a>
+            <a href="">Logout</a>
+
+        {% else %}
+            <a href="{% url 'login_' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+            
+        {% endif %}
+            <a href="">Support</a>
+    </div>
+</nav>
