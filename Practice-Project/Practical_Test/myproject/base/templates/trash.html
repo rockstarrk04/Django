@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+    <center>
+        <h2>Trash Page</h2>
+        <br><br>
+        {% for i in data %}
+            <span>ID : </span><span>{{i.id}}</span><br>
+            <span>Name : </span><span>{{i.name}}</span><br>
+            <span>Email : </span><span>{{i.email}}</span><br>
+            <span>Mobile Number : </span><span>{{i.mobile_number}}</span><br>
+            <span>Course : </span><span>{{i.course}}</span><br>
+            <span>City : </span><span>{{i.city}}</span><br><br>
+            <a href="{% url 'restore' i.id %}">Restore</a>
+
+            <hr>
+            
+
+        {% endfor  %}
+    </center>
+{% endblock %}
