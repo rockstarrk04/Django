@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <main class="page-shell">
+        <section class="card booking-card">
+            <h1>Update Ticket</h1>
+            <p>{{ data.company }} · {{ data.flight_name }} · {{ data.source }} to {{ data.destination }}</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="booking-section">
+                    <h2>Flight details</h2>
+                    <div class="booking-grid">
+                        <label class="booking-field"><span class="form-label">Flight company</span><input type="text" value="{{data.company}}" readonly></label>
+                        <label class="booking-field"><span class="form-label">Flight name</span><input type="text" value="{{data.flight_name}}" readonly></label>
+                        <label class="booking-field"><span class="form-label">Flight number</span><input type="text" value="{{data.flight_number}}" readonly></label>
+                        <label class="booking-field"><span class="form-label">Price</span><input type="text" value="Rs. {{data.price}}" readonly></label>
+                    </div>
+                </div>
+                <div class="booking-section">
+                    <h2>Passenger details</h2>
+                    <div class="booking-grid">
+                        <label class="booking-field"><span class="form-label">Your name</span><input type="text" name="c_name" value="{{data.c_name}}" placeholder="Enter your name" required></label>
+                        <label class="booking-field"><span class="form-label">Email</span><input type="email" name="c_email" value="{{data.c_email}}" placeholder="Enter your email" required></label>
+                        <label class="booking-field"><span class="form-label">Phone number</span><input type="number" name="c_phone_no" value="{{data.c_phone_no}}" placeholder="Phone number" required></label>
+                        <label class="booking-field"><span class="form-label">Aadhaar number</span><input type="number" name="c_adhaar_no" value="{{data.c_adhaar_no}}" placeholder="Aadhaar number" required></label>
+                        <label class="booking-field"><span class="form-label">Age</span><input type="number" name="c_age" value="{{data.c_age}}" placeholder="Your age" required></label>
+                        <label class="booking-field"><span class="form-label">Seat class</span><input type="text" name="seat_class" value="{{data.seat_class}}" placeholder="Economy or Business" required></label>
+                        <label class="booking-field"><span class="form-label">Seat number</span><input type="number" name="seat_no" value="{{data.seat_no}}" placeholder="Seat number" required></label>
+                    </div>
+                    <button class="booking-submit" type="submit">Update Ticket</button>
+                </div>
+            </form>
+        </section>
+    </main>
+{% endblock %}

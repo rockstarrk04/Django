@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <main class="page-shell">
+        <section class="card booking-card">
+            <h1>My bookings</h1>
+
+            {% for booking in data %}
+                <article class="booking-section">
+                    <h2>{{ booking.company }} · {{ booking.flight_name }}</h2>
+                    <div class="booking-grid">
+                        <div class="booking-field">
+                            <span class="form-label">Flight number</span>
+                            <span>{{ booking.flight_number }}</span>
+                        </div>
+                        <div class="booking-field">
+                            <span class="form-label">Route</span>
+                            <span>{{ booking.source }} to {{ booking.destination }}</span>
+                        </div>
+                        <div class="booking-field">
+                            <span class="form-label">Departure</span>
+                            <span>{{ booking.date|date:"M. j, Y" }} at {{ booking.departure_time }}</span>
+                        </div>
+                        <div class="booking-field">
+                            <span class="form-label">Price</span>
+                            <span>Rs. {{ booking.price }}</span>
+                        </div>
+                        <div class="booking-field">
+                            <span class="form-label">Passenger</span>
+                            <span>{{ booking.c_name }}</span>
+                        </div>
+                        <div class="booking-field">
+                            <span class="form-label">Email</span>
+                            <span>{{ booking.c_email }}</span>
+                        </div>
+                        <div class="booking-field">
+                            <span class="form-label">Phone number</span>
+                            <span>{{ booking.c_phone_no }}</span>
+                        </div>
+                        <div class="booking-field">
+                            <span class="form-label">Adhaar number</span>
+                            <span>{{ booking.c_adhaar_no }}</span>
+                        </div>
+                        <div class="booking-field">
+                            <span class="form-label">Age</span>
+                            <span>{{ booking.c_age }}</span>
+                        </div>
+                        <div class="booking-field">
+                            <span class="form-label">Seat</span>
+                            <span>{{ booking.seat_class }} · {{ booking.seat_no }}</span>
+                        </div>
+                    </div>
+                </article>
+                <div class="btns">
+                    <br>
+                    <a href="{% url 'update_ticket' booking.id %}">Update Ticket</a>
+                    <a href="{% url 'cancel_ticket' booking.id %}">Cancel Ticket</a>
+                </div>
+            {% empty %}
+                <p class="empty-state">You have no bookings yet.</p>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

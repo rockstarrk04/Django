@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <main class="page-shell">
+        <section class="card profile-card">
+            <div class="page-heading">
+                <h1>Your profile</h1>
+                <p>Review the account details connected to your bookings.</p>
+            </div>
+            <dl class="profile-list">
+                <div class="profile-row"><dt>Account status</dt><dd>{{request.user.is_authenticated}}</dd></div>
+                <div class="profile-row"><dt>Username</dt><dd>{{request.user|default:"Not provided"}}</dd></div>
+                <div class="profile-row"><dt>First name</dt><dd>{{request.user.first_name|default:"Not provided"}}</dd></div>
+                <div class="profile-row"><dt>Last name</dt><dd>{{request.user.last_name|default:"Not provided"}}</dd></div>
+                <div class="profile-row"><dt>Email</dt><dd>{{request.user.email}}</dd></div>
+            </dl>
+            <div class="btns">
+                <a href="{% url 'update_profile' %}">Update Profile</a>
+                <a href="{% url 'change_password' %}">Change Password</a>
+                <a href="{% url 'logout_' %}">Logout</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

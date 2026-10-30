@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+    <main class="page-shell">
+        <section class="card form-card">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+    </main>
+{% endblock %}

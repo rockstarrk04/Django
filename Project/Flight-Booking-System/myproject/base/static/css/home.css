@@ -1,0 +1,136 @@
+.flight-panel {
+    overflow: hidden;
+    padding: clamp(1.3rem, 4vw, 3rem);
+    position: relative;
+}
+
+.flight-panel::before {
+    background: linear-gradient(135deg, rgba(23, 92, 211, 0.13), rgba(255, 203, 5, 0.16));
+    border-radius: 50%;
+    content: "";
+    height: 22rem;
+    position: absolute;
+    right: -9rem;
+    top: -12rem;
+    width: 22rem;
+}
+
+.flight-panel > * {
+    position: relative;
+}
+
+.search-form {
+    align-items: flex-end;
+    display: flex;
+    gap: 0.9rem;
+}
+
+.search-fields {
+    display: grid;
+    flex: 1;
+    gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.search-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.search-fields span {
+    color: var(--ink-soft);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+}
+
+.search-form button {
+    min-height: 48px;
+    white-space: nowrap;
+}
+
+.flight-panel hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 2.5rem 0;
+}
+
+.available-flights h2 {
+    color: var(--ink);
+    font-size: 1.3rem;
+    letter-spacing: -0.025em;
+    margin: 0 0 1rem;
+}
+
+.flight-box {
+    align-items: center;
+    background: #fbfdff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--brand);
+    border-radius: 14px;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 1.25rem 1.35rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.flight-box:hover {
+    border-color: #b5cbe4;
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+}
+
+.flight-details h2 {
+    color: var(--ink);
+    font-size: 1.1rem;
+    margin: 0 0 0.35rem;
+}
+
+.flight-details p,
+.flight-summary p {
+    color: var(--muted);
+    margin: 0.25rem 0;
+}
+
+.flight-details strong,
+.flight-summary strong {
+    color: var(--ink);
+}
+
+.flight-summary {
+    min-width: 205px;
+    text-align: right;
+}
+
+.flight-summary .button {
+    margin-top: 0.65rem;
+}
+
+@media (max-width: 680px) {
+    .home-page {
+        padding-top: 2.5rem;
+    }
+
+    .search-form,
+    .flight-box {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .search-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .search-form button {
+        width: 100%;
+    }
+
+    .flight-summary {
+        min-width: 0;
+        text-align: left;
+    }
+}

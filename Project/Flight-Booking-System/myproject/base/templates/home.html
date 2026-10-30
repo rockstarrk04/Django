@@ -1,5 +1,56 @@
 {% extends 'main.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
 
 {% block content %}
-    <h1>Base</h1>
+    <main class="home-page">
+        <section class="flight-panel" aria-label="Flight search and available flights">
+            <div class="page-heading">
+                <h1>Find your next flight</h1>
+                <p>Search available routes and book your seat in a few simple steps.</p>
+            </div>
+            <form class="search-form" method="GET">
+                <div class="search-fields">
+                    <label>
+                        <span>From</span>
+                        <input type="text" name="source" value="{{ source }}" placeholder="Enter Departure City" required>
+                    </label>
+                    <label>
+                        <span>To</span>
+                        <input type="text" name="destination" value="{{ destination }}" placeholder="Enter Destination City" required>
+                    </label>
+                </div>
+                <button type="submit">Search Flights</button>
+            </form>
+
+            <hr>
+
+            <section class="available-flights">
+                <h2>Available flights</h2>
+                {% for i in data %}
+                    <article class="flight-box">
+                        <div class="flight-details">
+                            <h2>{{ i.company }}</h2>
+                            <p>{{ i.flight_name }} | Flight No: {{ i.flight_number }}</p>
+                            <p><strong>From:</strong> {{ i.source }}</p>
+                            <p><strong>To:</strong> {{ i.destination }}</p>
+                        </div>
+                        <div class="flight-summary">
+                            <p><strong>Departure:</strong> {{ i.departure_time }}</p>
+                            <p><strong>Date:</strong> {{ i.date|date:"M. j, Y" }}</p>
+                            <p><strong>Price:</strong> Rs.{{ i.price }}</p>
+                            <a class="button" href="{% url 'book' i.id %}">Book Now</a>
+                        </div>
+                    </article>
+                {% empty %}
+                    <p class="empty-state">No flights are available right now.</p>
+                {% endfor %}
+            </section>
+        </section>
+    </main>
+
 {% endblock %}

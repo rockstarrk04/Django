@@ -2,33 +2,23 @@
 
 
 {% block content %}
-    
-
-    <center>
-        <br><br>
-        <h1>Register Page</h1>
-        <br><br><hr><br><br>
-        <form action="" method="POST">
+    <main class="page-shell">
+        <section class="card form-card">
+            <h1>Create your account</h1>
+            <p class="muted">Join IndiGo to find and book your next trip.</p>
+            <form action="" method="POST">
             {% csrf_token %}
-
-            <label for="">First Name : </label>
-            <input type="text" name="first_name"><br><br>
-            <label for="">Last Name : </label>
-            <input type="text" name="last_name"><br><br>
-            <label for="">User Name : </label>
-            <input type="text" name="username"><br><br>
-            <label for="">Email : </label>
-            <input type="email" name="email"><br><br>
-            <label for="">Password : </label>
-            <input type="text" name="password"><br><br>
-
-            <button type="submit">Register</button>
-            <br><br>
-
-            <h2>Already Registered..? <a href="{% url 'login_' %}">Login</a></h2>
-        </form>
-
-
-        {{msz}}
-    </center>
+            {{form.non_field_errors}}
+            {% for i in form %}
+                <p>
+                    {{i.label_tag}}
+                    {{i}}
+                    {{i.errors}}
+                </p>
+            {% endfor %}
+                <button type="submit">Create account</button>
+                <p class="form-note">Already registered?<a href="{% url 'login_' %}">Sign in</a></p>
+            </form>
+        </section>
+    </main>
 {% endblock %}
